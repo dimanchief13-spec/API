@@ -32,7 +32,7 @@ app.add_middleware(
 
 BASE_DIR = Path(__file__).resolve().parent
 
-MODEL_PATH = BASE_DIR / "best_classification_model.h5"
+MODEL_PATH = BASE_DIR / "best_classification_model.keras"
 CLASS_NAMES_PATH = BASE_DIR / "class_names.json"
 
 model = keras.models.load_model(MODEL_PATH, compile=False)
