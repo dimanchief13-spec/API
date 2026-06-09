@@ -35,6 +35,7 @@ MODEL_PATH = BASE_DIR / "best_classification_model.keras"
 CLASS_NAMES_PATH = BASE_DIR / "class_names.json"
 
 model = keras.models.load_model(MODEL_PATH, compile=False)
+print(model.summary())
 
 with open(CLASS_NAMES_PATH, "r", encoding="utf-8") as f:
     class_names = json.load(f)
