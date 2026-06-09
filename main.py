@@ -31,7 +31,7 @@ app.add_middleware(
 
 BASE_DIR = Path(__file__).resolve().parent
 
-MODEL_PATH = BASE_DIR / "best_classification_model.h5"
+MODEL_PATH = BASE_DIR / "best_classification_model.keras"
 CLASS_NAMES_PATH = BASE_DIR / "class_names.json"
 
 model = keras.models.load_model(MODEL_PATH, compile=False)
@@ -44,13 +44,9 @@ def preprocess_image(image: Image.Image) -> np.ndarray:
     
     image = image.convert("RGB")
     image = image.resize((299, 299))
-    image = keras.applications.inception_v3.preprocess_input(image)
-
-    image_array = np.array(image).astype("float32")
-    
-    
-    image_array = np.expand_dims(image_array, axis=0)
-    
+    image_array = np.array(image, dtype=np.float32)        # (299, 299, 3)
+    image_array = keras.applications.inception_v3.preprocess_input(image_array)
+    image_array = np.expand_dims(image_array, axis=0)      # (1, 299, 299, 3)
     return image_array
 
 
