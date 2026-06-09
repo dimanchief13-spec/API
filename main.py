@@ -6,7 +6,6 @@ import numpy as np
 from PIL import Image
 
 from tensorflow import keras
-from tensorflow.keras.applications.resnet50 import preprocess_input
 
 import numpy as np
 from PIL import Image
@@ -32,7 +31,7 @@ app.add_middleware(
 
 BASE_DIR = Path(__file__).resolve().parent
 
-MODEL_PATH = BASE_DIR / "best_classification_model.keras"
+MODEL_PATH = BASE_DIR / "best_classification_model.h5"
 CLASS_NAMES_PATH = BASE_DIR / "class_names.json"
 
 model = keras.models.load_model(MODEL_PATH, compile=False)

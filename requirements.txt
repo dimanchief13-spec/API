@@ -1,7 +1,9 @@
 fastapi==0.103.0
-tensorflow==2.10.0
+numpy
+tensorflow==2.18.0
 uvicorn==0.23.2
 scikit-learn==1.6.1
-numpy
-pillow==10.0.0
-python-multipart==0.0.9
+streamlit
+opencv-python
+matplotlib
+streamlit_drawable_canvas
